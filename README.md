@@ -11,12 +11,5 @@ Các công nghệ sử dụng
 -MySQL: Hệ quản trị cơ sở dữ liệu để lưu trữ thông tin sản phẩm, khách hàng, và đơn hàng.
 -HTML, CSS, JavaScript: Để thiết kế giao diện và tăng cường trải nghiệm người dùng.
 -Bootstrap: Tạo giao diện thân thiện và tương thích với nhiều thiết bị.
-![image](https://github.com/user-attachments/assets/ba4c92c9-4764-40d8-a8b7-fa802c050cf2)
-![image](https://github.com/user-attachments/assets/806e7162-5603-4227-bf56-99207add1732)
-![image](https://github.com/user-attachments/assets/eacc7757-7647-43d1-a4ba-b65339cbd1ea)
-![image](https://github.com/user-attachments/assets/11dcc429-ffcc-4506-826d-868d4ee3bf79)
-![image](https://github.com/user-attachments/assets/88729721-38b0-4b28-925f-e936429d91d9)
-![image](https://github.com/user-attachments/assets/c8f2f5a8-a1a9-47f6-9bd7-adc3c225ccf2)
-![image](https://github.com/user-attachments/assets/a3b075de-e9fd-464e-b26d-b58492a95069)
-![image](https://github.com/user-attachments/assets/27af4167-13c1-4adc-9efc-fffb6dd95310)
+
 
