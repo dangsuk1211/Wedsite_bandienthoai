@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Tài Khoản</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Thông tin sản phẩm</h1>
+
+        <form th:action="@{/admin/products/edit/{id}(id=${product.id})}" th:object="${product}" method="post">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="number" th:field="*{id}" id="id" class="form-control" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Tên sản phẩm</label>
+                <input type="text" th:field="*{name}" id="name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Mô tả</label>
+               <textarea th:field="*{description}" id="description" class="form-control" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Giá (VND)</label>
+                <input type="number" th:field="*{price}" id="price" class="form-control" />
+            </div>
+  <div class="form-group">
+                <label for="imgPath">Đường dẫn tới IMG</label>
+                <input type="text" th:field="*{imgPath}" id="imgPath" class="form-control" />
+            </div>
+             <div class="form-group">
+                <label for="stock">Số lượng tồn kho</label>
+               <input type="number" th:field="*{stock}" id="stock" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+
+        <div th:if="${errorMessage}" class="alert alert-danger mt-3">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <br/>
+        <a href="/admin/products" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+
+    <script src="/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

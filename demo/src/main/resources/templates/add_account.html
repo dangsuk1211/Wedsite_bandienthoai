@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Người Dùng và Account</title>
+</head>
+<body>
+
+    <h1>Thêm Người Dùng và Account</h1>
+    <form action="/add" method="post" th:object="${userAccountForm}"> <!-- Đảm bảo tên là "userAccountForm" -->
+    <h2>Thông tin Account</h2>
+    
+    <!-- ID Account -->
+    <label for="id">ID Account:</label>
+    <input type="number" id="id" th:field="*{account.id}" required><br>
+
+    <!-- Tên Account -->
+    <label for="name">Tên Account:</label>
+    <input type="text" id="name" th:field="*{account.name}" required><br>
+
+    <!-- Mật khẩu Account -->
+    <label for="pass">Mật khẩu:</label>
+    <input type="password" id="pass" th:field="*{account.pass}" required><br>
+
+    <!-- Loại Account -->
+    <label for="type">Loại Account:</label>
+    <input type="text" id="type" th:field="*{account.type}" required><br>
+
+    <h2>Thông tin Người Dùng</h2>
+     <label for="idDepartment">phongban</label>
+    <input type="text" id="idDepartment" th:field="*{user.idDepartment}" required><br>
+    <!-- Họ và Tên -->
+    <label for="fullname">Họ và Tên:</label>
+    <input type="text" id="fullname" th:field="*{user.fullname}" required><br>
+
+    <!-- Số điện thoại -->
+    <label for="phone">Số Điện Thoại:</label>
+    <input type="text" id="phone" th:field="*{user.phone}" required><br>
+
+    <!-- Địa chỉ -->
+    <label for="address">Địa Chỉ:</label>
+    <input type="text" id="address" th:field="*{user.address}" required><br>
+
+    <!-- Tuổi -->
+    <label for="old">Tuổi:</label>
+    <input type="number" id="old" th:field="*{user.old}" required><br>
+
+    <button type="submit">Thêm</button>
+</form>
+
+</body>
+</html>

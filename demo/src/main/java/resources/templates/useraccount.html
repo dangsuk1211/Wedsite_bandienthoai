@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin Tài Khoản</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Thông tin Tài Khoản</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Type</th>
+                    <th>    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${account.accountId}"></td>
+                    <td th:text="${account.name}"></td>
+                    <td th:text="${account.pass}"></td>
+                    <td th:text="${account.type}"></td>
+                    <td>
+                        <a th:href="@{/user/account/edit/{id}(id=${account.accountId})}" class="btn btn-warning btn-sm">Đổi mật khẩu</a> |
+                        <a th:href="@{/user/account/infor/{id}(id=${account.accountId})}" class="btn btn-primary btn-sm">Thông tin cá nhân</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/user" class="btn btn-secondary mt-3">Quay lại Trang Chủ</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

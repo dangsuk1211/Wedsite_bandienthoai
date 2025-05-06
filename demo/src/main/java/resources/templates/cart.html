@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ Hàng</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="bg-primary text-white text-center py-4">
+    <h1>Giỏ Hàng</h1>
+</header>
+
+<div class="container mt-5">
+    <h2>Sản phẩm trong giỏ hàng</h2>
+    <table class="table table-striped">
+     <thead>
+<tr>
+    <th>Tên sản phẩm</th>
+    <th>Giá</th>
+    <th>Số lượng</th>
+    <th>Tổng</th>
+    <th></th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="item : ${cartItems}">
+    <td th:text="${item.product.name}"></td>
+    <td th:text="${#strings.replace(#numbers.formatCurrency(item.product.price), '$', 'VND')}"></td>
+    <td>
+        <form th:action="@{/user/cart/decrease}" method="post" style="display: inline;">
+            <input type="hidden" name="productId" th:value="${item.product.id}" />
+            <button type="submit" class="btn btn-warning btn-sm">-</button>
+        </form>
+        <span th:text="${item.quantity}"></span>
+        <form th:action="@{/user/cart/increase}" method="post" style="display: inline;">
+            <input type="hidden" name="productId" th:value="${item.product.id}" />
+            <button type="submit" class="btn btn-success btn-sm">+</button>
+        </form>
+    </td>
+    <td th:text="${#strings.replace(#numbers.formatCurrency(item.product.price * item.quantity), '$', 'VND')}"></td>
+    <td>
+        <form th:action="@{/user/cart/remove}" method="post">
+            <input type="hidden" name="productId" th:value="${item.product.id}" />
+            <button type="submit" class="btn btn-danger">Xóa</button>
+        </form>
+    </td>
+</tr>
+</tbody>
+
+
+    </table>
+    <a href="/user/viewProduct" class="btn btn-primary">Tiếp tục mua sắm</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

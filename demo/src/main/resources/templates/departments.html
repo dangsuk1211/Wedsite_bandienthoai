@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Phòng ban</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Danh sách Phòng ban</h1>
+        <a href="/admin/department/create" class="btn btn-primary mb-3">Tạo phòng ban mới</a>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên phòng ban</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="department : ${departments}">
+                    <td th:text="${department.idDepartment}"></td>
+                    <td th:text="${department.name}"></td>
+                    <td>
+                        <a th:href="@{/admin/department/edit/{id}(id=${department.idDepartment})}" class="btn btn-warning btn-sm">Sửa</a> |
+                        <a th:href="@{/admin/department/delete/{id}(id=${department.idDepartment})}" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Liên kết quay lại trang Home -->
+        <a href="/admin" class="btn btn-secondary mt-3">Home</a>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

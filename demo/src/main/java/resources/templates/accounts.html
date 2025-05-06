@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Tài Khoản</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Danh sách Tài Khoản</h1>
+        <a href="/admin/accounts/create" class="btn btn-primary mb-3">Tạo tài khoản mới</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="account : ${accounts}">
+                    <td th:text="${account.accountId}"></td>
+                    <td th:text="${account.name}"></td>
+                    <td th:text="${account.pass}"></td>
+                    <td th:text="${account.type}"></td>
+                    <td>
+                        <a th:href="@{/admin/accounts/edit/{id}(id=${account.accountId})}" class="btn btn-warning btn-sm">Sửa</a> |
+                        <a th:href="@{/admin/accounts/delete/{id}(id=${account.accountId})}" class="btn btn-danger btn-sm">Xóa</a>
+                        <a th:href="@{/admin/accounts/infor/{id}(id=${account.accountId})}" class="btn btn-primary btn-sm">Thông tin Tài khoản</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/admin" class="btn btn-secondary mt-3">Home</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

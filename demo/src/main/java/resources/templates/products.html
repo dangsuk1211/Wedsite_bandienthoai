@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Sản phẩm</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Quản lý sản phẩm</h1>
+        <a href="/admin/products/create" class="btn btn-primary mb-3">Thêm sản phẩm</a>
+
+        <!-- Table for product list -->
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Ảnh</th>
+                    <th>Số lượng tồn kho </th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                 <td><span th:text="${#strings.replace(#numbers.formatCurrency(product.price), '$', 'VND')}"></span></td>
+                    <td><img th:src="@{${product.imgPath}}" alt="Ảnh sản phẩm" style="width: 100px; height:150px;" /></td>
+                    <td th:text="${product.stock}"></td>
+                    <td>
+                        <a th:href="@{/admin/products/edit/{id}(id=${product.id})}" class="btn btn-warning btn-sm">Sửa</a>
+                        <a th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/admin" class="btn btn-secondary mt-3">Home</a>
+    </div>
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

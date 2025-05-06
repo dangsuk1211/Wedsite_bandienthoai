@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉnh sửa Thông tin Người dùng</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Chỉnh sửa Thông tin Người dùng</h1>
+
+        <div th:if="${errorMessage != null}">
+            <p th:text="${errorMessage}" class="text-danger"></p>
+        </div>
+        <form th:action="@{/user/account/infor/{id}(id=${user.accountuserid})}" method="post">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" id="id" class="form-control" th:value="${user.id}" name="id" readonly>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Tên đầy đủ</label>
+                <input type="text" id="fullname" class="form-control" th:value="${user.fullname}" name="fullname">
+            </div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="text" id="phone" class="form-control" th:value="${user.phone}" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ</label>
+                <input type="text" id="address" class="form-control" th:value="${user.address}" name="address">
+            </div>
+            <div class="form-group">
+                <label for="department">Phòng ban</label>
+                <input type="text" id="department" class="form-control" th:value="${user.department}" name="department">
+            </div>
+            <div class="form-group">
+                <label for="old">Tuổi</label>
+                <input type="number" id="old" class="form-control" th:value="${user.old}" name="old">
+            </div>
+            
+            <button type="submit" class="btn btn-success">Cập nhật</button>
+            <a href="/user/account" class="btn btn-secondary">Quay lại</a>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

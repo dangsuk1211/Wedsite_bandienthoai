@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa Tài Khoản</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Sửa Tài Khoản</h1>
+        <form th:action="@{/admin/accounts/edit/{id}(id=${account.accountId})}" th:object="${account}" method="post">
+            <!-- ID -->
+            <div class="form-group">
+                <label for="accountId">ID</label>
+                <input type="text" th:field="*{accountId}" id="accountId" class="form-control" readonly/>
+            </div>
+            <div class="form-group">
+                <label for="name">UserName</label>
+                <input type="text" th:field="*{name}" id="name" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+                <label for="pass">PassWord</label>
+                <input type="password" th:field="*{pass}" id="pass" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select th:field="*{type}" id="type" class="form-control">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+
+        <!-- Error Message -->
+        <div th:if="${errorMessage}" class="alert alert-danger mt-3">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <br/>
+        <!-- Back to list link -->
+        <a href="/admin/accounts" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+    <script src="/js//jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin phòng ban</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Thông tin phòng ban</h1>
+
+        <form th:action="@{/admin/department/edit/{id}(id=${department.idDepartment})}" th:object="${department}" method="post">
+            <div class="form-group">
+                <label for="idDeapartment">ID</label>
+                <input type="text" th:field="*{idDepartment}" id="idDepartment" class="form-control" readonly/>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Tên phòng ban</label>
+                <input type="text" th:field="*{name}" id="name" class="form-control" />
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+
+        <!-- Error Message -->
+        <div th:if="${errorMessage}" class="alert alert-danger mt-3">
+            <p th:text="${errorMessage}"></p>
+        </div>
+
+        <br/>
+        <!-- Back to list link -->
+        <a href="/admin/department" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+
+    <script src="/js//jquery-3.5.1.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+
+    <div class="card p-4 shadow-lg" style="width: 100%; max-width: 400px;">
+        <h1 class="text-center mb-4">Đăng nhập</h1>
+
+        <div th:if="${error}" class="alert alert-danger text-center" role="alert">
+            <p th:text="${error}"></p>
+        </div>
+<div th:if="${congratulation}" class="alert alert-success text-center" role="alert">
+            <p th:text="${congratulation}"></p>
+        </div>
+        <form action="/login" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Tên đăng nhập</label>
+                <input type="text" class="form-control" id="username" name="name" placeholder="Nhập tên đăng nhập" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" name="pass" placeholder="Nhập mật khẩu" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+        </form>
+
+     
+        <div class="text-center mt-3">
+             <a href="/create" class="btn btn-success w-100 mt-2">Đăng ký</a>
+        </div>
+    </div>
+
+</body>
+</html>
